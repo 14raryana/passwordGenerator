@@ -20,14 +20,14 @@
         <div class="card-body">
           <h4>Password criteria</h4>
           Length of password <input type="number" min="8" max="128" id="numberOfCharacters" required><small>Select a number between 8 and 128</small><br>
-          <input type="checkbox" id="uppercase" onclick="uppercaseBtn()">Uppercase<br>
+          <label>Select the criteria you wish to meet for your randomly generated password</label>
+          <input type="checkbox" id="uppercase">Uppercase<br>
           <p id="test"></p>
-          <p id="test2"></p>
-          <p id="test3"></p>
           <button type="submit" onclick="passwordCriteria()">hello</button>
-          <input type="checkbox" id="lowercase">Lowercase<br>
-          <!-- <input type="checkbox" id="number">Number(s)<br> -->
+          <input type="checkbox" id="lowercase">lowercase<br>
+          <input type="checkbox" id="number">Numeric Values<br>
           <input type="checkbox" id="specialCharacter">Special Character(s)<br>
+          <button type="button" id="textArea" onclick="myFunction()">click me</button>
           <textarea
             readonly
             id="password"
@@ -44,6 +44,11 @@
 
     <script type="text/javascript">
 
+        function myFunction() {
+          var passwordPlaceholder = document.getElementById("password");
+          passwordPlaceholder.innerHTML = "your generated password";
+        }
+
         var lowercaseAlphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
         var uppercaseAlphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         var numberArray = "0123456789".split("");
@@ -58,14 +63,24 @@
 
         function passwordCriteria() {
         var characters = document.getElementById("numberOfCharacters").value;
+        if (characters == "") {
+          alert("You must choose the number of characters for your password");
+        }
+
         var numberOfCharacters = parseInt(characters);
         console.log(typeof numberOfCharacters);
-        //  console.log(numberOfCharacters);
-        // password.length = numberOfCharacters;
         var password = new Array(numberOfCharacters);
 
         // function uppercaseBtn() {
-        // var upper = document.getElementById("uppercase").checked;
+        var uppercase = document.getElementById("uppercase").checked;
+
+        
+
+          // var uppercase = document.getElementById("uppercase").checked;
+        if (uppercase) {
+          document.getElementById("test").innerHTML = "uppercase selected";
+        }
+        else {document.getElementById("test").innerHTML = "NO uppercase selected";}
 
         for (i=0; i < password.length; i++) {
           // document.getElementById("test").innerHTML = numberOfCharacters;
@@ -75,9 +90,9 @@
           password.splice(i,1,char);
           // console.log(num);
         }
-        var hello = password.join("");
+        var joinedArray = password.join("");
         console.log(password);
-        console.log(hello);
+        console.log(joinedArray);
 
         // console.log("this is the array");
         // console.log(lowercaseAlphabetArray);
