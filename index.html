@@ -20,11 +20,11 @@
         <div class="card-body">
           <h4>Password criteria</h4>
           Length of password <input type="number" min="8" max="128" required><small>Select a number between 8 and 128</small><br>
-          <input type="checkbox" id="uppercase">Uppercase<br>
+          <input type="checkbox" id="uppercase" onclick="uppercaseBtn()">Uppercase<br>
           <p id="test"></p>
           <p id="test2"></p>
           <p id="test3"></p>
-          <button type="submit" onclick="passwordCriteria()">hello</button>
+          <button type="submit" onclick="passwordCriteris()">hello</button>
           <input type="checkbox" id="lowercase">Lowercase<br>
           <!-- <input type="checkbox" id="number">Number(s)<br> -->
           <input type="checkbox" id="specialCharacter">Special Character(s)<br>
@@ -44,26 +44,45 @@
 
     <script type="text/javascript">
 
-      function passwordCriteria() {
+        var lowercaseAlphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
+        var uppercaseAlphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        var numberArray = "0123456789".split("");
+        var specialCharacterArray = "~!@#$%^&*()-_=+[{]}:;|".split("");
+
+        console.log(lowercaseAlphabetArray);
+        console.log(uppercaseAlphabetArray);
+        console.log(numberArray);
+        console.log(specialCharacterArray);
+        
+      // function passwordCriteria() {
+        function uppercaseBtn() {
         var upper = document.getElementById("uppercase").checked;
-        var lower = document.getElementById("lowercase").checked;
-        var special = document.getElementById("specialCharacter").checked;
 
         if (upper) {
         document.getElementById("test").innerHTML = upper;
         }
         else {document.getElementById("test").innerHTML = upper;}
-        
-        if(lower) {
-          document.getElementById("test2").innerHTML = lower;
         }
-        else {document.getElementById("test2").innerHTML = lower;}
 
-        if(special) {
-          document.getElementById("test3").innerHTML = special;
-        }
-        else {document.getElementById("test3").innerHTML = special;}
-      }
+
+      //   var lower = document.getElementById("lowercase").checked;
+      //   var special = document.getElementById("specialCharacter").checked;
+
+      //   if(upper) {
+      //   document.getElementById("test").innerHTML = upper;
+      //   }
+      //   else {document.getElementById("test").innerHTML = upper;}
+        
+      //   if(lower) {
+      //     document.getElementById("test2").innerHTML = lower;
+      //   }
+      //   else {document.getElementById("test2").innerHTML = lower;}
+
+      //   if(special) {
+      //     document.getElementById("test3").innerHTML = special;
+      //   }
+      //   else {document.getElementById("test3").innerHTML = special;}
+      // }
 
     </script>
     
