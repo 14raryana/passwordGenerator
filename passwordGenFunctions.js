@@ -2,8 +2,7 @@ var lowercaseAlphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
 var uppercaseAlphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var numberArray = "0123456789".split("");
 var specialCharacterArray = "~!@#$%^&*()-_=+[{]}:;|".split("");
-var allArrays = lowercaseAlphabetArray.concat(uppercaseAlphabetArray,numberArray,specialCharacterArray);
-var finalArray = new Array();
+var finalArray;
 var password;    
 var numberOfCharacters;
 var joinedPassword;
@@ -33,6 +32,7 @@ const MAX_NUMBER_OF_CHARACTERS = 128;
     // var password = new Array(numberOfCharacters);
     // console.log("it worked");
     password = new Array();
+    finalArray = new Array();
     passwordCriteriaFunction();
   }
   // return numberOfCharacters;
@@ -44,7 +44,7 @@ var uppercase = document.getElementById("uppercase").checked;
 var lowercase = document.getElementById("lowercase").checked;
 var numbers = document.getElementById("number").checked;
 var specialCharacters = document.getElementById("specialCharacter").checked;
-finalArray.length = 0;
+// finalArray.length = 0;
 
   // console.log("criteria function");
 
@@ -91,11 +91,6 @@ finalArray.length = 0;
     console.log("special");
 
   }
-
-
-
-
-
   //6 ul
   else if (uppercase && lowercase && !numbers && !specialCharacters) {
     for (i = 0; i < uppercaseAlphabetArray.length; i++) {
@@ -273,6 +268,7 @@ function passwordFunction(finalArray) {
     console.log(i);
   }
   console.log(password);
+  
   joinedPassword = password.join("");
   console.log(joinedPassword);
   generatePasswordForUser(joinedPassword);
