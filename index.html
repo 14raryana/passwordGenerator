@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
   </head>
   
   <body>
+  
     <div class="wrapper">
       <header>
         <h1>Password Generator</h1>
@@ -22,32 +24,45 @@
           Length of password <input type="number" min="8" max="128" id="numberOfCharacters" required><small>Select a number between 8 and 128</small><br>
           <label>Select the criteria you wish to meet for your randomly generated password</label><br>
 
-          <input type="checkbox" id="uppercase">Uppercase<br>
-          <input type="checkbox" id="lowercase">lowercase<br>
-          <input type="checkbox" id="number">Numeric Values<br>
-          <input type="checkbox" id="specialCharacter">Special Character(s)<br>
+          <input type="checkbox" id="uppercase"> Uppercase<br>
+          <input type="checkbox" id="lowercase"> Lowercase<br>
+          <input type="checkbox" id="number"> Numeric Values<br>
+          <input type="checkbox" id="specialCharacter"> Special Character(s)<br>
 
-          <p id="test"></p>
-          <p id="test2"></p>
-          <p id="test3"></p>
-          <p id="test4"></p>
-          <p id="test5"></p>
-
-          <button type="submit" onclick="characterFunction()">hello</button>
-
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
+          <!-- <button type="submit" id="helloBtn" onclick="numberOfCharacterCheck()">hello</button> -->
+          <!-- <button onclick="storePasswordFunction()" id="storePasswordBtn">Store Password</button>
+          <button id="printPass">Print Stored Password</button> -->
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+                <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                  Tooltip on top
+                </button> -->
+                <button id="prevPass" class="btn" data-toggle="tooltip" title="Previous Password"><i class="fas fa-arrow-left"></i></button>
+              </div>
+              <div class="col-8" id="textArea">
+                <textarea
+                  readonly
+                  id="password"
+                  placeholder="Your Secure Password"
+                  aria-label="Generated Password"></textarea>
+                <button id="copyPassword" data-toggle="tooltip" data-placement="top" title="Copy Password to Clipboard" class="btn" onclick="copyPasswordFunction()"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="col-2">
+                <button id="nextPass" data-toggle="tooltip" data-placement="top" title="Next Password" class="btn"><i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="generate" class="btn" onclick="numberOfCharacterCheck()">Generate Password</button><br>
         </div>
       </div>
     </div>
     
+    
     <script src="passwordGenFunctions.js"></script>
+    <script src="https://kit.fontawesome.com/8509c691cf.js" crossorigin="anonymous"></script>
   </body>
 </html>
