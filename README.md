@@ -22,3 +22,4 @@ Every password that is generated is added to an array that empties everytime the
 This button is pretty self explanatory.  Upon clicking this button the displayed password is automatically copied to the users clipboard so they are able to take it somewhere else and paste it.
 
 ## Link to GitHub Pages for this site:
+https://14raryana.github.io/passwordGenerator/
